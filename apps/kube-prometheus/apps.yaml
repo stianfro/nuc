@@ -11,6 +11,9 @@ spec:
     path: manifests/setup
     repoURL: https://github.com/prometheus-operator/kube-prometheus.git
     targetRevision: HEAD
+  syncPolicy:
+    syncOptions:
+      - Replace=true
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -25,3 +28,6 @@ spec:
     path: manifests
     repoURL: https://github.com/prometheus-operator/kube-prometheus.git
     targetRevision: HEAD
+  syncPolicy:
+    syncOptions:
+      - Replace=true
