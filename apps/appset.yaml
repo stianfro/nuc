@@ -7,14 +7,14 @@ spec:
   syncPolicy:
     preserveResourcesOnDeletion: false
   generators:
-  - git:
-      repoURL: https://github.com/stianfro/rpi.git
-      revision: HEAD
-      directories:
-      - path: apps/*
+    - git:
+        repoURL: https://github.com/stianfro/nuc.git
+        revision: HEAD
+        directories:
+          - path: apps/*
   template:
     metadata:
-      name: 'app-{{path.basename}}'
+      name: "app-{{path.basename}}"
     spec:
       project: "default"
       syncPolicy:
@@ -22,10 +22,10 @@ spec:
           prune: true
           selfHeal: true
         syncOptions:
-        - CreateNamespace=true
+          - CreateNamespace=true
       source:
-        repoURL: https://github.com/stianfro/rpi.git
+        repoURL: https://github.com/stianfro/nuc.git
         targetRevision: HEAD
-        path: '{{path}}'
+        path: "{{path}}"
       destination:
         server: https://kubernetes.default.svc
