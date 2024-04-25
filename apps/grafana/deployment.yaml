@@ -21,12 +21,12 @@ spec:
             limits:
               cpu: "500m"
               memory: "128Mi"
-            volumeMounts:
-              - name: storage-volume
-                mountPath: /var/lib/grafana
-              # - name: grafana-config-volume
-              #   mountPath: /etc/grafana/grafana.ini
-              #   subPath: grafana.ini
+          volumeMounts:
+            - name: storage-volume
+              mountPath: /var/lib/grafana
+            # - name: grafana-config-volume
+            #   mountPath: /etc/grafana/grafana.ini
+            #   subPath: grafana.ini
       volumes:
         - name: storage-volume
           persistentVolumeClaim:
