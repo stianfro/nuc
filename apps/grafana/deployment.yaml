@@ -13,19 +13,24 @@ spec:
         app: grafana
     spec:
       containers:
-      - name: grafana
-        image: grafana/grafana-oss:latest
-        ports:
-        - containerPort: 3000
-        resources:
-          limits:
-            cpu: "0.5"
-            memory: "128Mi"
-      #   volumeMounts:
-      #   - name: grafana-config-volume
-      #     mountPath: /etc/grafana/grafana.ini
-      #     subPath: grafana.ini
-      # volumes:
-      # - name: grafana-config-volume
-      #   configMap:
-      #     name: grafana-config
+        - name: grafana
+          image: grafana/grafana-oss:latest
+          ports:
+            - containerPort: 3000
+          resources:
+            limits:
+              cpu: "0.5"
+              memory: "128Mi"
+            volumeMounts:
+              - name: storage-volume
+                mountPath: /var/lib/grafana
+              # - name: grafana-config-volume
+              #   mountPath: /etc/grafana/grafana.ini
+              #   subPath: grafana.ini
+      volumes:
+        - name: storage-volume
+          persistentVolumeClaim:
+            claimName: grafana-storage
+        # - name: grafana-config-volume
+        #   configMap:
+        #     name: grafana-config
