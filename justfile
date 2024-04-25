@@ -14,3 +14,6 @@ uninstall:
 
 rotate:
     bash scripts/rotate.sh
+
+join-agent:
+    bash scripts/k3s-join-agent.sh
