@@ -1,6 +1,7 @@
 resources:
-# - configmap.yaml
-- deployment.yaml
-- namespace.yaml
-- service.yaml
+  # - configmap.yaml
+  - deployment.yaml
+  - namespace.yaml
+  - service.yaml
+  - pvc.yaml
 namespace: grafana
